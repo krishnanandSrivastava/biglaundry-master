@@ -1,0 +1,27 @@
+@import "~src/styles";
+
+$check-size: 100px;
+
+.order-success-check-wrapper {
+  text-align: center;
+
+  .order-success-check-wrapper-inner {
+    border: $sucess-color solid 3px;
+    display: inline-block;
+    border-radius: 50%;
+    width: $check-size;
+    height: $check-size;
+
+    .order-success-check {
+      font-size: $check-size;
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      display: block;
+      text-align: center;
+      backface-visibility: hidden;
+      //font-weight: 100;
+      color: $sucess-color;
+    }
+  }
+}

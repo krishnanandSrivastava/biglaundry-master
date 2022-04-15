@@ -1,0 +1,54 @@
+<div style="background: #ccc; height: 1px;"></div>
+<div class="x-small-space"></div>
+
+<!--<div class="small-space"></div>-->
+
+
+<div class="checkout-subsection-heading">Your items</div>
+
+<div class="cart-items-wrapper">
+  <div *ngFor="let cartItem of woocommerceCartService.cart" class="cart-item">
+    <div class="cart-add-to-cart">
+      <app-add-to-cart
+        [quantity]="cartItem.quantity"
+        [cartItem]="cartItem"></app-add-to-cart>
+    </div>
+    <div class="cart-item-details">
+      <div class="small-space"></div>
+      {{ cartItem.product_name }}
+    </div>
+    <div class="cart-item-price">
+      <div class="small-space"></div>
+      {{ cartItem.quantity * cartItem.price | currency:'XAF':'':'1.0-0' }} frs <span
+      class="xx-small-space horizontal"></span>
+      <a class="text-icon" (click)="woocommerceCartService.removeFromCart(cartItem, -1)">x</a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<div class="x-small-space"></div>
+<div><a routerLink="/search">Add Item</a></div>
+
+<div class="x-small-space"></div>
+<div style="background: #ccc; height: 1px;"></div>
+<div class="x-small-space"></div>
+
+<div class="cart-items-wrapper">
+  <div class="cart-item-details"><strong>Total</strong></div>
+  <div class="cart-item-price"><strong>{{ woocommerceCartService.totalPrice | currency:'XAF':'':'1.0-0' }}
+    frs</strong></div>
+  <div class="clearfix"></div>
+</div>
+<div class="xx-small-space"></div>
+<div class="checkout-subsection-heading">5,000 frs minimum order</div>
+
+<div class="x-small-space"></div>
+<div style="background: #ccc; height: 1px;"></div>
+
+<p></p>
+<div>
+  <button [disabled]="!orderIsValid()" mat-button mat-raised-button color="primary" class="full-width" (click)="next()">
+    Next
+  </button>
+  <span class="small-space"></span>
+</div>

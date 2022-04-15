@@ -1,0 +1,22 @@
+<util-nav [title]="'Checkout'"></util-nav>
+
+<div class="page-section-wrapper">
+
+  <div *ngIf="cartService.cart && cartService.cart.length > 0">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div *ngIf="!(cartService.cart && cartService.cart.length > 0)" class="empty-cart-wrapper">
+
+    <div><mat-icon>shopping_basket</mat-icon></div>
+    <p>Your basket is empty</p>
+
+    <div class="small-space"></div>
+    <button
+      mat-button mat-raised-button
+      color="primary" class="full-width"
+      routerLink="/home">
+      Home
+    </button>
+  </div>
+</div>
